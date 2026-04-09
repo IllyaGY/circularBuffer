@@ -5,6 +5,7 @@
 !README.md
 !Makefile
 !CMakeLists.txt
+!release_version.sh
 !buffer_api.c
 !buffer_api.h
 !buffer_array.c

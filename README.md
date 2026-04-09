@@ -112,6 +112,14 @@ make test
 make test-dynamic
 ```
 
+Notes:
+
+- `make static` builds the static library only
+- `make shared` builds the Linux-style shared library only
+- `make dynamic` builds the macOS dynamic library only
+- `make test` and `make test-dynamic` need `test.c`
+- the library targets do not need `test.c`
+
 ## Building Manually
 
 Compile the object files:
@@ -149,6 +157,55 @@ Build the demo program against the macOS dynamic library:
 ```sh
 cc -Wall -Wextra -Werror -std=c11 test.c -L. -lcb -Wl,-rpath,@executable_path -lcurses -o test_dynamic.out
 ```
+
+## Versioned Library Releases
+
+You asked for tagged/versioned library builds without changing the `Makefile`, so this repo now includes:
+
+- `release_version.sh`
+
+This script uses the existing `make` targets, then creates versioned library artifacts in `dist/<version>/`.
+
+Example:
+
+```sh
+./release_version.sh 1.0.0
+```
+
+That will:
+
+- run `make clean`
+- build `libcb.a`, `libcb.so`, and `libcb.dylib`
+- create a release folder like `dist/1.0.0/`
+- create versioned files and symlinks
+
+Output layout:
+
+```text
+dist/1.0.0/
+  libcb-1.0.0.a
+  libcb.a -> libcb-1.0.0.a
+  libcb.so.1.0.0
+  libcb.so.1 -> libcb.so.1.0.0
+  libcb.so -> libcb.so.1
+  libcb.1.0.0.dylib
+  libcb.1.dylib -> libcb.1.0.0.dylib
+  libcb.dylib -> libcb.1.dylib
+```
+
+If you also want a matching Git tag:
+
+```sh
+./release_version.sh 1.0.0 --git-tag
+```
+
+That creates an annotated tag:
+
+```text
+v1.0.0
+```
+
+The Git tag is optional because it is a source-control release marker, while the versioned libraries are just build artifacts.
 
 ## Demo Controls
 

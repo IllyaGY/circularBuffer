@@ -8,12 +8,11 @@
 
 
 // use linux error codes -- done
-// Put into void* -- done (sort of)
-// Remove macros make user api's usable
-// Make it a library 
-// DLL
+// Put into void* -- done (sort of built an API on top)
+// Remove macros make user api's usable - done
+// Make it a library - done (static for now)
+// DLL (done)
 
-#define TEST_CASE 0
 
 void test(); 
 
