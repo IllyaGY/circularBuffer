@@ -222,9 +222,12 @@ The Git tag is optional because it is a source-control release marker, while the
 
 While `test.c` is running:
 
-- `i`: push one item
-- `r`: pop one item
-- `d`: destroy the buffer
+- `a`: create a new array-backed buffer
+- `l`: create a new linked-list-backed buffer
+- `i`: prompt for a student name and push it into the active buffer
+- `r`: pop the oldest student from the active buffer
+- `d`: destroy the active buffer
+- `q`: quit the demo
 
 ## Current Notes
 
