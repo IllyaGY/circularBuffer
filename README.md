@@ -222,11 +222,13 @@ The Git tag is optional because it is a source-control release marker, while the
 
 While `test.c` is running:
 
+- choose `single` or `thread` mode at startup, or press `m` to switch later
 - `a`: create a new array-backed buffer
 - `l`: create a new linked-list-backed buffer
 - `i`: prompt for a student name and push it into the active buffer
 - `r`: pop the oldest student from the active buffer
 - `d`: destroy the active buffer
+- `w`: in thread mode, run a `3 producers / 2 consumers` thread demo against the active buffer
 - `q`: quit the demo
 
 ## Current Notes

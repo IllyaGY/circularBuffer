@@ -4,7 +4,7 @@ ARFLAGS ?= rcs
 CFLAGS ?= -Wall -Wextra -Werror -std=c11
 CURSES_LIBS ?= -lcurses
 
-LIB_SRCS = buffer_api.c buffer_array.c buffer_list.c
+LIB_SRCS = buffer_api.c buffer_array.c buffer_list.c thread_buffer.c
 LIB_OBJS = $(LIB_SRCS:.c=.o)
 
 STATIC_LIB = libcb.a

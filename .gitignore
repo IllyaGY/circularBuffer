@@ -13,4 +13,6 @@
 !buffer_list.c
 !buffer_list.h
 !buffer_log.h
+!thread_buffer.c
+!thread_buffer.h
 !test.c
